@@ -1,0 +1,15 @@
+<app-toolbar caption="Quiz Box App" icon="home"/>
+<button mat-raised-button color="accent" (click)="store.generateNewQuiz()">Generate new Quiz</button>
+<div class="main">
+  @if(!store.isDone()) {
+    <app-progress/>
+    <app-question-presenter/>  
+  } @else {
+    <app-done/>
+  }
+</div>
+@if(store.isBusy()) {
+  <div class="busy">
+    <mat-spinner/>
+  </div>  
+}
